@@ -1,17 +1,31 @@
 COLUMNS:
   product_id: object
-  product_category_name: object
-  month_year: object
-  qty: int64
-  freight_price: float64
-  unit_price: float64
-  comp_1: float64
-  ps1: float64
-  fp1: float64
-  comp_2: float64
-  ps2: float64
-  fp2: float64
-  comp_3: float64
-  ps3: float64
-  fp3: float64
-  lag_price: float64
+  product_category_name:          object
+  month_year:                     object
+  qty:                             int64
+  total_price:                   float64
+  freight_price:                 float64
+  unit_price:                    float64
+  product_name_lenght:             int64
+  product_description_lenght:      int64
+  product_photos_qty:              int64
+  product_weight_g:                int64
+  product_score:                 float64
+  customers:                       int64
+  weekday:                         int64
+  weekend:                         int64
+  holiday:                         int64
+  month:                           int64
+  year :                           int64
+  s    :                         float64
+  volume   :                       int64
+  comp_1    :                    float64
+  ps1       :                    float64
+  fp1       :                    float64
+  comp_2    :                    float64
+  ps2      :                     float64
+  fp2      :                     float64
+  comp_3   :                     float64
+  ps3      :                     float64
+  fp3       :                    float64
+  lag_price  :                   float64

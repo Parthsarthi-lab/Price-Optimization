@@ -24,8 +24,8 @@ class DataValidation:
             status = False
             data_path = self.config.data_dir
 
-            df = pd.read_csv(data_path, index_col=0)
-            df.reset_index(drop=True, inplace=True)
+            df = pd.read_csv(data_path)
+            
 
             col_dtypes = df.dtypes
             info_logger.info(f"\n {col_dtypes}")
