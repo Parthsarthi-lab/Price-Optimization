@@ -12,10 +12,14 @@ class FeatureEngineering:
 
     def transform_data(self, data):
         try:
-            transformation_pipeline_path = "artifacts/feature_engineering/pipeline.joblib"
-            transformation_pipeline = joblib.load(transformation_pipeline_path)
+            product_id_pipeline_path = "artifacts/feature_engineering/product_id.joblib"
+            product_cat_name_pipeline_path = "artifacts/feature_engineering/product_cat_name.joblib"
+            
+            product_id_pipeline = joblib.load(product_id_pipeline_path)
+            product_cat_name_pipeline = joblib.load(product_cat_name_pipeline_path)
 
-            transformed_data = transformation_pipeline.transform(data)
+            transformed_data = product_id_pipeline.transform(data)
+            transformed_data = product_cat_name_pipeline.transform(transformed_data)
 
             return transformed_data
         except Exception as e:
