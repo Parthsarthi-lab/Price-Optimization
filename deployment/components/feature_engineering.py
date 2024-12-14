@@ -25,7 +25,9 @@ class FeatureEngineering:
             data[0][0] = product_id_transformed[0]
             data[0][1] = product_cat_name_transformed[0]
 
+            data = data.astype(np.int8)
             transformed_data = data
+            
             return transformed_data
         except Exception as e:
             handle_exception(e, FeatureEngineeringError)
@@ -37,4 +39,4 @@ if __name__ == "__main__":
     
     feature_engineering = FeatureEngineering()
     transformed_data = feature_engineering.transform_data(data)
-    print(transformed_data)
+    

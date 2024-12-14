@@ -23,6 +23,6 @@ class Prediction:
 
 if __name__ == "__main__":
     prediction = Prediction()
-    data = np.array([[-0.33295106 , 0.79905763 ,3.0105974 ]])
-    predicted_price = prediction.predict(data)
-    print(predicted_price)
+    data = np.array([[ 0 , 0 , 3 , 4 , 5 , 6 , 7 , 8 , 9 ,10, 11, 12, 13, 14, 15, 16]])
+    predicted_qt = prediction.predict(data)
+    print(predicted_qt)
