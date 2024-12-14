@@ -30,3 +30,19 @@ class CrossValConfig:
     final_test_data_path: Path
     best_model_params: Path
     STATUS_FILE: str
+
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    final_train_data_path: Path
+    final_test_data_path: Path
+    best_model_params: Path
+    STATUS_FILE: str
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    final_test_data_path: Path
+    model_path: Path
+    STATUS_FILE: str

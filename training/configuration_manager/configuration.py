@@ -4,6 +4,9 @@ from training.entity.config_entity import DataIngestionConfig
 from training.entity.config_entity import DataValidationConfig
 from training.entity.config_entity import FeatureExtractionConfig
 from training.entity.config_entity import CrossValConfig
+from training.entity.config_entity import ModelTrainerConfig
+from training.entity.config_entity import ModelEvaluationConfig
+
 class ConfigurationManager:
     def __init__(
             self,
@@ -75,3 +78,33 @@ class ConfigurationManager:
 
             return cross_val_config
 
+    def get_model_trainer_config(self) -> ModelTrainerConfig :        
+            config = self.config.model_trainer
+
+            create_directories([config.root_dir])
+
+            model_trainer_config = ModelTrainerConfig(
+                root_dir = config.root_dir,
+                final_train_data_path=config.final_train_data_path,
+                final_test_data_path=config.final_test_data_path,
+                best_model_params=config.best_model_params,
+                STATUS_FILE= config.STATUS_FILE
+            )
+
+            return model_trainer_config
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+
+        config = self.config.model_evaluation
+        
+        create_directories([config.root_dir])
+        
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            final_test_data_path=config.final_test_data_path,
+            model_path=config.model_path,
+            STATUS_FILE = config.STATUS_FILE
+        )
+
+        return model_evaluation_config
