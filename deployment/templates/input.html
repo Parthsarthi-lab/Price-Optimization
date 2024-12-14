@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        select, input[type="number"], input[type="text"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Data</h2>
+        <form action="{{ url_for('prediction') }}" method="post">
+            <label for="product_id">Product ID:</label>
+            <select id="product_id" name="product_id" required>
+                <!-- Product ID Options -->
+                <option value="" disabled selected>Select Product ID</option>
+                {% for id in ['bed1', 'garden5', 'consoles1', 'garden7', 'health9', 'cool4', 'health3',
+                              'perfumery1', 'cool5', 'health8', 'garden4', 'computers5', 'garden10',
+                              'computers6', 'health6', 'garden6', 'health10', 'watches2', 'health1',
+                              'garden8', 'garden9', 'watches6', 'cool3', 'perfumery2', 'cool2',
+                              'computers1', 'consoles2', 'health5', 'watches8', 'furniture4',
+                              'watches5', 'health7', 'bed3', 'garden3', 'bed2', 'furniture3',
+                              'watches4', 'watches3', 'furniture2', 'garden2', 'furniture1',
+                              'health2', 'garden1', 'cool1', 'computers4', 'watches7',
+                              'computers3', 'health4', 'watches1', 'computers2', 'bed4', 'bed5'] %}
+                <option value="{{ id }}">{{ id }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="product_category_name">Product Category Name:</label>
+            <select id="product_category_name" name="product_category_name" required>
+                <!-- Product Category Name Options -->
+                <option value="" disabled selected>Select Product Category</option>
+                {% for category in ['bed_bath_table', 'garden_tools', 'consoles_games', 'health_beauty', 
+                                    'cool_stuff', 'perfumery', 'computers_accessories', 'watches_gifts', 
+                                    'furniture_decor'] %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="freight_price">Freight Price:</label>
+            <input type="number" id="freight_price" name="freight_price" step="0.01" min="0" required>
+
+            <label for="unit_price">Unit Price:</label>
+            <input type="number" id="unit_price" name="unit_price" step="0.01" min="0" required>
+
+
+            <label for="comp_1">Competitor 1 Price:</label>
+            <input type="number" id="comp_1" name="comp_1" step="0.01" min="0" required>
+
+            <label for="ps1">Promotion Spend 1:</label>
+            <input type="number" id="ps1" name="ps1" step="0.01" min="0" required>
+
+            <label for="fp1">Feature Price 1:</label>
+            <input type="number" id="fp1" name="fp1" step="0.01" min="0" required>
+
+            <label for="comp_2">Competitor 2 Price:</label>
+            <input type="number" id="comp_2" name="comp_2" step="0.01" min="0" required>
+
+            <label for="ps2">Promotion Spend 2:</label>
+            <input type="number" id="ps2" name="ps2" step="0.01" min="0" required>
+
+            <label for="fp2">Feature Price 2:</label>
+            <input type="number" id="fp2" name="fp2" step="0.01" min="0" required>
+
+            <label for="comp_3">Competitor 3 Price:</label>
+            <input type="number" id="comp_3" name="comp_3" step="0.01" min="0" required>
+
+            <label for="ps3">Promotion Spend 3:</label>
+            <input type="number" id="ps3" name="ps3" step="0.01" min="0" required>
+
+            <label for="fp3">Feature Price 3:</label>
+            <input type="number" id="fp3" name="fp3" step="0.01" min="0" required>
+
+            <label for="lag_price">Lag Price:</label>
+            <input type="number" id="lag_price" name="lag_price" step="0.01" min="0" required>
+
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" min="2000" required>
+
+            <label for="month">Month:</label>
+            <input type="number" id="month" name="month" min="1" max="12" required>
+            
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

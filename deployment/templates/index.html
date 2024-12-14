@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Prediction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to the Price Optimization App</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('prediction') }}" class="btn">Provide  Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about">
+            <h2>About This App</h2>
+            <p>
+               This application provides optimized price based on various features.
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Price Optimization App. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

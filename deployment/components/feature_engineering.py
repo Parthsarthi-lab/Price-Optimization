@@ -25,7 +25,7 @@ class FeatureEngineering:
             data[0][0] = product_id_transformed[0]
             data[0][1] = product_cat_name_transformed[0]
 
-            data = data.astype(np.int8)
+            data = data.astype(np.float64)
             transformed_data = data
             
             return transformed_data
