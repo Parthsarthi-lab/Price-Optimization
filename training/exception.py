@@ -32,6 +32,9 @@ class DataIngestionError(PipelineError):
 
 class DataValidationError(PipelineError):
     pass
+
+class FeautreExtractionError(PipelineError):
+    pass
 class CrossValError(PipelineError):
     pass
 

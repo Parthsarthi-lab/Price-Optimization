@@ -10,3 +10,8 @@ data_validation:
   root_dir: artifacts/data_validation
   data_dir: artifacts/data_ingestion/retail_price.csv
   STATUS_FILE: artifacts/data_validation/status.txt
+
+feature_extraction:
+  root_dir: artifacts/feature_extraction
+  data_dir: artifacts/data_ingestion/retail_price.csv
+  STATUS_FILE: artifacts/feature_extraction/status.txt

@@ -15,3 +15,9 @@ class DataValidationConfig:
     data_dir: Path
     all_schema: dict
     STATUS_FILE: str
+
+@dataclass(frozen=True)
+class FeatureExtractionConfig:
+    root_dir: Path
+    data_dir: Path
+    STATUS_FILE: str

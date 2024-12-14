@@ -2,7 +2,7 @@ from training.constants import *
 from training.utils.common import read_yaml, create_directories
 from training.entity.config_entity import DataIngestionConfig
 from training.entity.config_entity import DataValidationConfig
-
+from training.entity.config_entity import FeatureExtractionConfig
 class ConfigurationManager:
     def __init__(
             self,
@@ -42,3 +42,17 @@ class ConfigurationManager:
             STATUS_FILE=config.STATUS_FILE
         )
         return data_validation_config
+    
+#3
+    def get_feature_extraction_config(self) -> FeatureExtractionConfig:
+        config = self.config.feature_extraction
+
+        create_directories([config.root_dir])
+        
+        feature_extraction_config = FeatureExtractionConfig(
+            root_dir=config.root_dir,
+            data_dir=config.data_dir,
+            STATUS_FILE=config.STATUS_FILE
+        )
+        return feature_extraction_config
+
