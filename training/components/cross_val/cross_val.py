@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import joblib
 from pathlib import Path
 
 import pandas as pd
@@ -83,10 +84,18 @@ class CrossVal:
             df.drop(['month_year'], axis=1, inplace=True)
 
             # Lable Encoding for categorical data
-            le = LabelEncoder()
+            product_id_mapping = LabelEncoder()
+            product_cat_name_mapping = LabelEncoder()
 
-            df['product_id'] = le.fit_transform(df['product_id'])
-            df['product_category_name'] = le.fit_transform(df['product_category_name'])
+            df['product_id'] = product_id_mapping.fit_transform(df['product_id'])
+            df['product_category_name'] = product_cat_name_mapping.fit_transform(df['product_category_name'])
+
+
+            # Save label encoder to artifacts folder
+            product_id_path = os.path.join(self.config.root_dir,"product_id.joblib")
+            product_cat_name_path = os.path.join(self.config.root_dir,"product_cat_name.joblib")
+            joblib.dump(product_id_mapping, product_id_path)
+            joblib.dump(product_cat_name_mapping, product_cat_name_path)
 
             info_logger.info("Feature Engineering for Cross Val Component completed")
 
