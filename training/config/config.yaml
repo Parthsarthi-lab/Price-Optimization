@@ -15,3 +15,11 @@ feature_extraction:
   root_dir: artifacts/feature_extraction
   data_dir: artifacts/data_ingestion/retail_price.csv
   STATUS_FILE: artifacts/feature_extraction/status.txt
+
+cross_val:
+  root_dir: artifacts/cross_val
+  data_dir: artifacts/feature_extraction/features_extracted.csv
+  final_train_data_path: artifacts/cross_val/data_for_final_train
+  final_test_data_path: artifacts/cross_val/data_for_final_train
+  best_model_params: artifacts/cross_val/best_model_params
+  STATUS_FILE: artifacts/cross_val/status.txt

@@ -21,3 +21,12 @@ class FeatureExtractionConfig:
     root_dir: Path
     data_dir: Path
     STATUS_FILE: str
+
+@dataclass(frozen=True)
+class CrossValConfig:
+    root_dir: Path
+    data_dir: Path
+    final_train_data_path: Path
+    final_test_data_path: Path
+    best_model_params: Path
+    STATUS_FILE: str

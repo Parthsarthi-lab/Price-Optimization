@@ -3,6 +3,7 @@ from training.utils.common import read_yaml, create_directories
 from training.entity.config_entity import DataIngestionConfig
 from training.entity.config_entity import DataValidationConfig
 from training.entity.config_entity import FeatureExtractionConfig
+from training.entity.config_entity import CrossValConfig
 class ConfigurationManager:
     def __init__(
             self,
@@ -55,4 +56,22 @@ class ConfigurationManager:
             STATUS_FILE=config.STATUS_FILE
         )
         return feature_extraction_config
+    
+    #4
+    def get_cross_val_config(self) -> CrossValConfig:
+            config = self.config.cross_val
+            create_directories([config.root_dir])
+            create_directories([config.final_train_data_path, config.final_test_data_path])
+            create_directories([ config.best_model_params])
+
+            cross_val_config = CrossValConfig(
+                root_dir = config.root_dir,
+                data_dir= config.data_dir,
+                final_train_data_path = config.final_train_data_path,
+                final_test_data_path= config.final_test_data_path,
+                best_model_params= config.best_model_params,
+                STATUS_FILE= config.STATUS_FILE
+            )
+
+            return cross_val_config
 
