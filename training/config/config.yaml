@@ -6,3 +6,7 @@ data ingestion:
   data_dir: artifacts/data_ingestion
   STATUS_FILE: artifacts/data_ingestion/status.txt
 
+data_validation:
+  root_dir: artifacts/data_validation
+  data_dir: artifacts/data_ingestion/retail_price.csv
+  STATUS_FILE: artifacts/data_validation/status.txt

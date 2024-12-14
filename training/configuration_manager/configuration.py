@@ -1,6 +1,7 @@
 from training.constants import *
 from training.utils.common import read_yaml, create_directories
 from training.entity.config_entity import DataIngestionConfig
+from training.entity.config_entity import DataValidationConfig
 
 class ConfigurationManager:
     def __init__(
@@ -27,3 +28,17 @@ class ConfigurationManager:
             STATUS_FILE=config.STATUS_FILE
         )
         return data_ingestion_config
+    
+#2
+    def get_data_validation_config(self) -> DataValidationConfig:
+        config = self.config.data_validation
+        schema = self.schema.COLUMNS
+        create_directories([config.root_dir])
+        
+        data_validation_config = DataValidationConfig(
+            root_dir=config.root_dir,
+            data_dir=config.data_dir,
+            all_schema=schema,
+            STATUS_FILE=config.STATUS_FILE
+        )
+        return data_validation_config

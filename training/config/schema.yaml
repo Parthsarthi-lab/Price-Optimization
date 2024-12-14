@@ -1,1 +1,17 @@
-Dummy values: value1
+COLUMNS:
+  product_id: object
+  product_category_name: object
+  month_year: object
+  qty: int64
+  freight_price: float64
+  unit_price: float64
+  comp_1: float64
+  ps1: float64
+  fp1: float64
+  comp_2: float64
+  ps2: float64
+  fp2: float64
+  comp_3: float64
+  ps3: float64
+  fp3: float64
+  lag_price: float64
