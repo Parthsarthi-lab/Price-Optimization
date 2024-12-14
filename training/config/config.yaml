@@ -1,0 +1,8 @@
+artifacts_root: artifacts
+
+data ingestion:
+  root dir: artifacts/data_ingestion
+  source: data/retail_price.csv
+  data_dir: artifacts/data_ingestion
+  STATUS_FILE: artifacts/data_ingestion/status.txt
+
